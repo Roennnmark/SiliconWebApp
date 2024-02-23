@@ -922,3 +922,50 @@ footer .container .social-media {
   gap: 20px;
   margin-bottom: 30px;
 }
+
+#signup {
+  height: 100%;
+}
+#signup .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#signup .container form {
+  padding: 1rem;
+}
+#signup .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
+}
+@media (min-width: 768px) {
+  #signup .container form {
+    grid-auto-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+  }
+}
+#signup .container form #form-firstname {
+  grid-area: firstname;
+}
+#signup .container form #form-lastname {
+  grid-area: lastname;
+}
+#signup .container form #form-email {
+  grid-area: email;
+}
+#signup .container form #form-password {
+  grid-area: password;
+}
+#signup .container form #form-confirm {
+  grid-area: confirm;
+}
+#signup .container form #form-terms {
+  grid-area: terms;
+  padding: 1rem 0;
+}
+#signup .container form #form-button {
+  grid-area: button;
+}
