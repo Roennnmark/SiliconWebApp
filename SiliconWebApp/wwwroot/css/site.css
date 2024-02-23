@@ -435,7 +435,7 @@ form input.input-validation-error::placeholder {
   color: #EF4444;
 }
 form span.field-validation-error {
-  position: absolute;
+  position: static;
   top: 0;
   right: 0;
   line-height: 160%;
