@@ -1,0 +1,58 @@
+.newsletter {
+    background-color: $gray-100;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .container {
+        img {
+            display: none;
+        }
+
+        .checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .input-and-btn {
+            display: flex;
+            gap: 5px;
+        }
+
+        @include md {
+            padding-right: 200px;
+            padding-left: 200px;
+
+            .headline-img {
+                display: flex;
+                gap: 30px;
+
+                img {
+                    display: block;
+                }
+            }
+
+            .checkboxes {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                margin-top: 50px;
+
+                input {
+                    margin-right: 4px;
+                }
+            }
+
+            .input-and-btn {
+                display: flex;
+                gap: 10px;
+                margin-top: 50px;
+
+                input {
+                    border-radius: 5px;
+                    padding: 10px;
+                    width: 600px;
+                    color: $gray-700;
+                }
+            }
+        }
+    }
+}

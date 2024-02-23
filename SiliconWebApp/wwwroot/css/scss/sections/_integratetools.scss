@@ -1,0 +1,45 @@
+.integrate-section {
+
+    .container {
+        padding-top: 70px;
+        padding-bottom: 70px;
+
+        .head-line {
+            text-align: center;
+        }
+
+        .boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+
+        @include md {
+            .head-line {
+                text-align: center;
+
+                p {
+                    padding: 0 220px 40px 220px;
+                    color: $gray-700;
+                }
+            }
+
+            .boxes {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 60px;
+
+                p {
+                    color: $gray-700;
+                }
+
+                .box {
+
+                    img {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

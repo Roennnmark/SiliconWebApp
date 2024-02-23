@@ -1,0 +1,55 @@
+.download-app {
+    background-color: $gray-100;
+
+    .container {
+        img {
+            display: none;
+        }
+
+        .appstore-btn {
+            display: inline-block;
+        }
+
+        .googleplay-btn {
+            display: inline-block;
+        }
+
+        padding-bottom: 20px;
+
+        @include md {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-bottom: 70px;
+            padding-top: 70px;
+            background-color: $gray-200;
+
+            img {
+                display: flex;
+                margin-left: 70px;
+            }
+
+            .right-side {
+                margin-right: 100px;
+                margin-left: 50px;
+
+                .head-line {
+                    margin-bottom: 30px;
+                }
+
+                .app-download-info {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 30px;
+
+                    .appstore-btn {
+                        margin-top: auto;
+                    }
+
+                    .googleplay-btn {
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+    }
+}
