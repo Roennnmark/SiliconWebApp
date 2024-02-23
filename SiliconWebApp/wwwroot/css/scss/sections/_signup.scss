@@ -1,11 +1,19 @@
 #signup {
     height: 100%;
-    
+
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
+
+        @include lg {
+            width: 60%;
+        }
+
+        @include xl {
+            width: 40%;
+        }
 
         form {
             padding: 1rem;
@@ -15,42 +23,42 @@
                 gap: 1rem 2rem;
                 grid-template-columns: 1fr;
                 grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
-            }
 
-            @include md {
-                grid-auto-columns: 1fr 1fr;
-                grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
-            }
 
-            #form-firstname {
-                grid-area: firstname;
-            }
+                @include md {
+                    grid-auto-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+                }
 
-            #form-lastname {
-                grid-area: lastname;
-            }
+                #form-firstname {
+                    grid-area: firstname;
+                }
 
-            #form-email {
-                grid-area: email;
-            }
+                #form-lastname {
+                    grid-area: lastname;
+                }
 
-            #form-password {
-                grid-area: password;
-            }
+                #form-email {
+                    grid-area: email;
+                }
 
-            #form-confirm {
-                grid-area: confirm;
-            }
+                #form-password {
+                    grid-area: password;
+                }
 
-            #form-terms {
-                grid-area: terms;
-                padding: 1rem 0;
-            }
+                #form-confirm {
+                    grid-area: confirm;
+                }
 
-            #form-button {
-                grid-area: button;
-            }
+                #form-terms {
+                    grid-area: terms;
+                    padding: 1rem 0;
+                }
 
+                #form-button {
+                    grid-area: button;
+                }
+            }
         }
     }
 }
