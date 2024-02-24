@@ -22,7 +22,7 @@
                 display: grid;
                 gap: 1rem 2rem;
                 grid-template-columns: 1fr;
-                grid-template-areas: "email" "password" "remember" "button" "forgot" "hr" "external";
+                grid-template-areas: "email" "password" "remember" "button" "forgot";
 
                 #form-email {
                     grid-area: email;
@@ -55,6 +55,7 @@
                     grid-area: external;
                     display: flex;
                     gap: 1rem;
+
                     a {
                         flex: 1;
                     }
