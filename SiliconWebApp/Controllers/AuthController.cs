@@ -22,4 +22,14 @@ public class AuthController : Controller
 
         return RedirectToAction("SignIn", "Auth");
     }
+
+
+    [Route("/signin")]
+    [HttpGet]
+    public IActionResult SignIn()
+    {
+        var viewModel = new SignInViewModel();
+        return View(viewModel);
+    }
+
 }

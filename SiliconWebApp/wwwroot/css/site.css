@@ -487,13 +487,13 @@ header .container .btn-switch {
     display: block;
   }
 }
-header .container .account-buttons {
+header .container #account-buttons {
   grid-area: buttons;
   display: none;
   gap: 15px;
 }
 @media (min-width: 992px) {
-  header .container .account-buttons {
+  header .container #account-buttons {
     display: flex;
   }
 }
@@ -505,29 +505,6 @@ header .container .btn-mobilemenu {
   header .container .btn-mobilemenu {
     display: none;
   }
-}
-header .container .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-header .container .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-}
-header .container .modal-content a {
-  display: block;
-  margin-bottom: 10px;
 }
 
 .showcase {
@@ -676,6 +653,9 @@ header .container .modal-content a {
   }
   .features .container .tool-boxes .box:nth-child(1), .features .container .tool-boxes .box:nth-child(4) {
     border-right: 1px solid #E2E5F1;
+  }
+  .features .container .tool-boxes .box:hover {
+    background-color: white;
   }
 }
 
@@ -833,6 +813,19 @@ header .container .modal-content a {
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 }
+.integrate-section .container .boxes .box {
+  transition: box-shadow 0.3s ease;
+  padding: 15px;
+}
+.integrate-section .container .boxes .box:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.integrate-section .container .boxes .box img {
+  margin-bottom: 10px;
+}
+.integrate-section .container .boxes .box p {
+  color: #565973;
+}
 @media (min-width: 768px) {
   .integrate-section .container .head-line {
     text-align: center;
@@ -848,6 +841,9 @@ header .container .modal-content a {
   }
   .integrate-section .container .boxes p {
     color: #565973;
+  }
+  .integrate-section .container .boxes .box {
+    padding: 15px;
   }
   .integrate-section .container .boxes .box img {
     margin-bottom: 10px;
@@ -978,4 +974,62 @@ footer .container .social-media {
 }
 #signup .container form .content #form-button {
   grid-area: button;
+}
+
+#signin {
+  height: 100%;
+}
+#signin .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  #signin .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signin .container {
+    width: 40%;
+  }
+}
+#signin .container form {
+  padding: 1rem;
+}
+#signin .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "email" "password" "remember" "button" "forgot" "hr" "external";
+}
+#signin .container form .content #form-email {
+  grid-area: email;
+}
+#signin .container form .content #form-password {
+  grid-area: password;
+}
+#signin .container form .content #form-remember {
+  grid-area: remember;
+  padding: 1rem 0;
+}
+#signin .container form .content #form-button {
+  grid-area: button;
+}
+#signin .container form .content #form-forgot-password {
+  grid-area: forgot;
+  margin: 1rem 0 0 0;
+  text-align: center;
+}
+#signin .container form .content hr {
+  grid-area: hr;
+}
+#signin .container form .content #external-signin {
+  grid-area: external;
+  display: flex;
+  gap: 1rem;
+}
+#signin .container form .content #external-signin a {
+  flex: 1;
 }
