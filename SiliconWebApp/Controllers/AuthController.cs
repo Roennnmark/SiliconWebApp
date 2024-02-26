@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SiliconWebApp.Models.ViewModels;
+using SiliconWebApp.ViewModels;
 
 namespace SiliconWebApp.Controllers;
 
@@ -35,14 +35,10 @@ public class AuthController : Controller
     [HttpPost]
     public IActionResult SignIn(SignInViewModel viewModel)
     {
-        
-
         if (!ModelState.IsValid)
             return View(viewModel);
-
 
         viewModel.ErrorMessage = "Incorrect email or password";
         return View(viewModel);
     }
-
 }

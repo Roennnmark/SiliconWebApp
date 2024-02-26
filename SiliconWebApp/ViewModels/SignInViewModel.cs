@@ -1,4 +1,6 @@
-﻿namespace SiliconWebApp.Models.ViewModels;
+﻿using SiliconWebApp.Models;
+
+namespace SiliconWebApp.ViewModels;
 
 public class SignInViewModel
 {

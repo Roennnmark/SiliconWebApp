@@ -6,16 +6,16 @@ namespace SiliconWebApp.Models;
 public class SignUpModel
 {
     [Display(Name = "First Name", Prompt = "Enter your first name", Order = 0)]
-    [Required(ErrorMessage = "Invalid first name")]
+    [Required(ErrorMessage = "First name is required")]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Last Name", Prompt = "Enter your last name", Order = 1)]
-    [Required(ErrorMessage = "Invalid last name")]
+    [Required(ErrorMessage = "Last name is required")]
     public string LastName { get; set; } = null!;
 
     [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
     [DataType(DataType.EmailAddress)]
-    [Required(ErrorMessage = "Invalid email address")]
+    [Required(ErrorMessage = "Email is required")]
     [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email adress")]
     public string Email { get; set; } = null!;
 
