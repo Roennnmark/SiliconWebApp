@@ -10,7 +10,7 @@ public class AccountDetailsAddressInfoModel
 
     [Display(Name = "Last Name", Prompt = "Enter your last name", Order = 1)]
     [Required(ErrorMessage = "Last name is required")]
-    public string Adressline_2 { get; set; } = null!;
+    public string Addressline_2 { get; set; } = null!;
 
     [Display(Name = "Postal code", Prompt = "Enter your postal code", Order = 2)]
     [Required(ErrorMessage = "Postal code is required")]

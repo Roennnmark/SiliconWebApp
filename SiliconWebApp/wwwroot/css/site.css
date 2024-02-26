@@ -252,6 +252,25 @@ a:hover {
   color: #FFFFFF;
 }
 
+.btn-transparent {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  color: #565973;
+  border: none;
+}
+.btn-transparent:hover {
+  text-decoration: none;
+  background: #565973;
+  color: #FFFFFF;
+}
+
 .btn-gray {
   border-radius: 6px;
   text-align: center;
@@ -1052,9 +1071,15 @@ footer .container .social-media {
 
 #account-details {
   display: grid;
-  grid-auto-columns: 2fr 5fr;
+  grid-template-columns: 1fr;
   gap: 150px;
   margin-bottom: 70px;
+}
+@media (min-width: 768px) {
+  #account-details {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+  }
 }
 #account-details aside {
   border-right: 1px solid #E2E5F1;
@@ -1101,7 +1126,7 @@ footer .container .social-media {
 #account-details .details .basic-info form .content {
   display: grid;
   gap: 1rem 2rem;
-  grid-auto-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
 }
 #account-details .details .basic-info form .content #form-firstname {

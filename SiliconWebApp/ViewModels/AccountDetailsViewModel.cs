@@ -7,7 +7,7 @@ public class AccountDetailsViewModel
     public string Title { get; set; } = "Account Details";
     public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
     {
-        ProfileImage = "~/images/profile-image.svg",
+        ProfileImage = "images/avatar.svg",
         FirstName = "Mathias",
         LastName = "Rönnmark",
         Email = "mathias@hotmail.com"

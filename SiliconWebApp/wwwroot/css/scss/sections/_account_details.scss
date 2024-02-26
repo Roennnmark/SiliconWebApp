@@ -1,6 +1,12 @@
 #account-details {
     display: grid;
-    grid-auto-columns: 2fr 5fr;
+    grid-template-columns: 1fr;
+
+    @include md {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+    }
+
     gap: 150px;
     margin-bottom: 70px;
 
@@ -55,9 +61,9 @@
                 .content {
                     display: grid;
                     gap: 1rem 2rem;
-                    grid-auto-columns: 1fr 1fr;
+                    grid-template-columns: 1fr 1fr;
                     grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
-
+                    
                     #form-firstname {
                         grid-area: firstname;
                     }
