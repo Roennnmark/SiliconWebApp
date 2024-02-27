@@ -1,25 +1,18 @@
-const formErrorHandler = (e, validationResult) => {
-    let spanElement = document.querySelector(`[data-valmsg-for"${e.target.name}"]`)
+const formErrorHandler = (element, validationResult) => {
+    let spanElement = document.querySelector(`[data-valmsg-for"${element.target.name}"]`)
 
     if (validationResult) {
         e.target.classList.remove('input-validation-error')
         spanElement.classList.remove('field-validation-error')
         spanElement.classList.add('field-validation-valid')
-        spanElement.innerHTML = ""
+        spanElement.innerHTML = ''
     }
     else {
         e.target.classList.add('input-validation-error')
         spanElement.classList.add('field-validation-error')
         spanElement.classList.remove('field-validation-valid')
-        spanElement.innerHTML = e.target.dataset.valRequired
+        spanElement.innerHTML = element.dataset.valRequired
     }
-}
-
-const compareValidator = (value, compareValue) => {
-    if (value === compareValue)
-        return true
-
-    return false;
 }
 
 const textValidator = (element, minLength = 2) => {
@@ -66,7 +59,7 @@ inputs.forEach(input => {
 
         if (input.type === 'checkbox') {
             input.addEventListener('change', (e) => {
-
+                checkboxValidator(e.target)
             })
         }
         else {
