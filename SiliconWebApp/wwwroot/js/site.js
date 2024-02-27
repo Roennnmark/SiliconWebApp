@@ -1,4 +1,5 @@
 ﻿const toggleMenu = () => {
+    console.log("toggleMenu() called");
     document.getElementById('menu').classList.toggle('hide');
     document.getElementById('account-buttons').classList.toggle('hide');
 }
