@@ -534,7 +534,6 @@ header .container #account-buttons {
 }
 header .container .btn-mobilemenu {
   grid-area: mobile;
-  display: block;
 }
 @media (min-width: 992px) {
   header .container .btn-mobilemenu {
