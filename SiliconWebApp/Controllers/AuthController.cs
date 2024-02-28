@@ -1,42 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.Services;
+using Microsoft.AspNetCore.Mvc;
 using SiliconWebApp.ViewModels;
 
 namespace SiliconWebApp.Controllers;
 
-public class AuthController : Controller
+public class AuthController(UserService userService) : Controller
 {
-    [Route("/signup")]
+    private readonly UserService _userService = userService;
+
     [HttpGet]
-    public IActionResult SignUp()
+    [Route("/signup")]
+    public IActionResult SignUp() => View(new SignUpViewModel());
+
+    [HttpPost]
+    [Route("/signup")]
+    public async Task<IActionResult> SignUp(SignUpViewModel viewModel)
     {
-        var viewModel = new SignUpViewModel();
+        if (ModelState.IsValid)
+        {
+            var result = await _userService.CreateUserAsync(viewModel.Form);
+            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
+                return RedirectToAction("SignIn", "Auth");
+        }
+
         return View(viewModel);
     }
 
-    [Route("/signup")]
-    [HttpPost]
-    public IActionResult SignUp(SignUpViewModel viewModel)
-    {
-        if (!ModelState.IsValid)
-            return View(viewModel);
-
-        return RedirectToAction("SignIn", "Auth");
-    }
-
-
-    [Route("/signin")]
     [HttpGet]
-    public IActionResult SignIn()
-    {
-        var viewModel = new SignInViewModel();
-        return View(viewModel);
-    }
     [Route("/signin")]
+    public IActionResult SignIn() => View(new SignInViewModel());
     [HttpPost]
-    public IActionResult SignIn(SignInViewModel viewModel)
+    [Route("/signin")]
+    public async Task<IActionResult> SignIn(SignInViewModel viewModel)
     {
         if (!ModelState.IsValid)
-            return View(viewModel);
+        {
+            var result = await _userService.SignInUserAsync(viewModel.Form);
+            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
+                return RedirectToAction("Details", "Account");
+        }
 
         viewModel.ErrorMessage = "Incorrect email or password";
         return View(viewModel);

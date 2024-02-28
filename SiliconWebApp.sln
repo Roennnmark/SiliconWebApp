@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiliconWebApp", "SiliconWebApp\SiliconWebApp.csproj", "{D86C4D39-0FD2-49FD-B639-A9742E69D55D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3D64F48A-8AB8-4FD4-BCA7-40371C5529EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D86C4D39-0FD2-49FD-B639-A9742E69D55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D86C4D39-0FD2-49FD-B639-A9742E69D55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D86C4D39-0FD2-49FD-B639-A9742E69D55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D64F48A-8AB8-4FD4-BCA7-40371C5529EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D64F48A-8AB8-4FD4-BCA7-40371C5529EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D64F48A-8AB8-4FD4-BCA7-40371C5529EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D64F48A-8AB8-4FD4-BCA7-40371C5529EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
