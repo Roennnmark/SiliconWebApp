@@ -17,7 +17,7 @@ header {
             grid-area: logo;
         }
 
-        #menu {
+        .menu {
             grid-area: menu;
             display: none;
 
@@ -40,7 +40,7 @@ header {
             }
         }
 
-        #account-buttons {
+        .account-buttons {
             grid-area: buttons;
             display: none;
             gap: 15px;
