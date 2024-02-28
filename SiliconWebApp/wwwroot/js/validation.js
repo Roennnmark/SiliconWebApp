@@ -1,14 +1,14 @@
 const formErrorHandler = (element, validationResult) => {
-    let spanElement = document.querySelector(`[data-valmsg-for"${element.target.name}"]`)
+    let spanElement = document.querySelector(`[data-valmsg-for="${element.name}"]`)
 
     if (validationResult) {
-        e.target.classList.remove('input-validation-error')
+        element.classList.remove('input-validation-error')
         spanElement.classList.remove('field-validation-error')
         spanElement.classList.add('field-validation-valid')
         spanElement.innerHTML = ''
     }
     else {
-        e.target.classList.add('input-validation-error')
+        element.classList.add('input-validation-error')
         spanElement.classList.add('field-validation-error')
         spanElement.classList.remove('field-validation-valid')
         spanElement.innerHTML = element.dataset.valRequired
@@ -20,7 +20,7 @@ const textValidator = (element, minLength = 2) => {
         formErrorHandler(element, true)
     }
     else {
-        formErrorHandler(element, true)
+        formErrorHandler(element, false)
     }
 }
 
@@ -31,7 +31,7 @@ const emailValidator = (element) => {
 
 const passwordValidator = (element) => {
     if (element.dataset.valEqualtoOther !== undefined) {
-        let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', 'Form'))[0].value
+        let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', 'Form'))[0].value;
 
         if (element.value === password)
             formErrorHandler(element, true)
@@ -63,6 +63,7 @@ inputs.forEach(input => {
             })
         }
         else {
+
             input.addEventListener('keyup', (e) => {
 
                 switch (e.target.type) {
