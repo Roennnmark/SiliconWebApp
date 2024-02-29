@@ -20,10 +20,19 @@ public class AuthController(UserService userService) : Controller
         {
             var result = await _userService.CreateUserAsync(viewModel.Form);
             if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
+            {
                 return RedirectToAction("SignIn", "Auth");
+            }
+            else
+            {
+                return View(viewModel);
+            }
         }
-
-        return View(viewModel);
+        else
+        {
+            return View(viewModel);
+        }
+        
     }
 
     [HttpGet]

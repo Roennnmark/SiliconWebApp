@@ -18,7 +18,7 @@ public class ResponseFactory
         return new ResponseResult
         {
             Message = message ?? "Succeeded",
-            StatusCode = StatusCode.ERROR
+            StatusCode = StatusCode.OK
         };
     }
 
@@ -28,7 +28,7 @@ public class ResponseFactory
         {
             ContentResult = obj,
             Message = message ?? "Succeeded",
-            StatusCode = StatusCode.ERROR
+            StatusCode = StatusCode.OK
         };
     }
 
