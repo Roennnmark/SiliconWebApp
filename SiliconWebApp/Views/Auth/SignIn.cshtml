@@ -1,15 +1,15 @@
 ﻿@model SignInViewModel
 
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = "Sign in";
 }
 
 <section id="signin">
     <div class="container">
         <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>
-            <div>
+@*             <div>
                 @Model.ErrorMessage
-            </div>
+            </div> *@
 
             <h1>Welcome back</h1>
             <p>Don't have an account yet? <a asp-controller="Auth" asp-action="SignUp">Sign up here</a></p>
@@ -30,7 +30,7 @@
                     <label asp-for=Form.RememberMe></label>
                 </div>
 
-                <button id="form-button" class="btn-theme-s" type="submit">@Model.Title</button>
+                <button id="form-button" class="btn-theme-s" type="submit">Sign in</button>
 
                 <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
 

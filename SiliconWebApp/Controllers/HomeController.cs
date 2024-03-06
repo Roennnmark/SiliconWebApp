@@ -12,4 +12,9 @@ public class HomeController : Controller
 
         return View(viewModel);
     }
+
+    [Route("/error")]
+    public IActionResult Error404(int statusCode) => View();
+
+
 }

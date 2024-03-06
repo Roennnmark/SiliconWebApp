@@ -1,4 +1,6 @@
-﻿<header>
+﻿@inject SignInManager<UserEntity> _signInManager
+
+<header>
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/Silicon Logotype - Light Mode.svg" alt=""></a>
         <div class="menu hide">
@@ -17,8 +19,16 @@
             <label>Dark</label>
         </div>
         <div class="account-buttons hide">
-            <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign in</span></a>
-            <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-user"></i><span>My account</span></a>
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-sharp fa-regular fa-arrow-right-from-bracket"></i><span>Sign out</span></a>
+            }
+            else
+            {
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-sharp fa-regular fa-arrow-right-to-bracket"></i><span>Sign in</span></a>
+                <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
+            }
         </div>
         <button onclick="toggleMenu()" class="btn-mobilemenu">
             <i class="fa-regular fa-bars"></i>

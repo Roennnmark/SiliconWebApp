@@ -1,0 +1,27 @@
+.error-404 {
+    .container {
+
+        .content {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .btn-theme-s {
+                display: inline-block;
+                
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
