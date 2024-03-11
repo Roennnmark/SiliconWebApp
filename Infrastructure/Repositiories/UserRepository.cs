@@ -16,7 +16,7 @@ public class UserRepository(DataContext context) : Repo<UserEntity>(context)
         try
         {
             IEnumerable<UserEntity> result = await _context.Users
-                .Include(i => i.Address)
+                .Include(i => i.Addresses)
                 .ToListAsync();
             return ResponseFactory.Ok(result);
         }
@@ -31,7 +31,7 @@ public class UserRepository(DataContext context) : Repo<UserEntity>(context)
         try
         {
             var result = await _context.Set<UserEntity>()
-                .Include(i => i.Address)
+                .Include(i => i.Addresses)
                 .FirstOrDefaultAsync(predicate);
 
             if (result == null)

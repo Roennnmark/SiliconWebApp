@@ -6,6 +6,7 @@ using SiliconWebApp.ViewModels;
 
 namespace SiliconWebApp.Controllers;
 
+[Authorize]
 public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
@@ -41,9 +42,14 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     }
 
     [HttpPost]
-    public IActionResult AdressInfo(AccountDetailsViewModel viewModel)
+    public async Task<IActionResult> AdressInfo(AccountDetailsViewModel viewModel)
     {
-        //_accountService.SaveAddressInfo(viewModel.AdressInfo);
-        return RedirectToAction(nameof(Details));
+        var result = await _userManager.UpdateAsync(viewModel.User);
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("Failed ", "Unable to save data");
+            ViewData["ErrorMessage"] = "Unable to save data";
+        }
+        return RedirectToAction("Details", "Account", viewModel);
     }
 }

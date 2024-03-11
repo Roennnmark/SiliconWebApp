@@ -1,11 +1,7 @@
 #signin {
-    height: 100%;
+    margin-top: 60px;
 
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
 
         @include lg {
             width: 60%;

@@ -4,12 +4,12 @@ namespace SiliconWebApp.Models.AccountDetails;
 
 public class AccountDetailsAddressInfoModel
 {
-    [Display(Name = "First Name", Prompt = "Enter your first name", Order = 0)]
-    [Required(ErrorMessage = "First name is required")]
+    [Display(Name = "Address line 1", Prompt = "Enter your address line", Order = 0)]
+    [Required(ErrorMessage = "Address is required")]
     public string Addressline_1 { get; set; } = null!;
 
-    [Display(Name = "Last Name", Prompt = "Enter your last name", Order = 1)]
-    [Required(ErrorMessage = "Last name is required")]
+    [Display(Name = "Address line 2", Prompt = "Enter your second address line", Order = 1)]
+    [Required(ErrorMessage = "Address is required")]
     public string Addressline_2 { get; set; } = null!;
 
     [Display(Name = "Postal code", Prompt = "Enter your postal code", Order = 2)]

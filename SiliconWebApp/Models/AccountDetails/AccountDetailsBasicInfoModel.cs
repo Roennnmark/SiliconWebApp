@@ -4,9 +4,6 @@ namespace SiliconWebApp.Models.AccountDetails;
 
 public class AccountDetailsBasicInfoModel
 {
-    [DataType(DataType.ImageUrl)]
-    public string? ProfileImage { get; set; }
-
     [Display(Name = "First Name", Prompt = "Enter your first name", Order = 0)]
     [Required(ErrorMessage = "First name is required")]
     public string FirstName { get; set; } = null!;
