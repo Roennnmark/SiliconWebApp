@@ -1,0 +1,35 @@
+.contact-page {
+    background-color: $gray-100;
+
+    header {
+        background-color: $gray-100;
+    }
+
+    .container {
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .left {
+
+                .email-us {
+                    display: flex;
+                }
+
+                .careers {
+                    display: flex;
+                }
+            }
+
+            .contact-box {
+                background-color: white;
+                border-color: 3px solid black;
+            }
+        }
+    }
+
+    .map {
+        width: 100%;
+    }
+}
