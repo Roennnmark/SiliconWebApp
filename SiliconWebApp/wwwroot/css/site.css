@@ -601,15 +601,6 @@ header .container .account-buttons {
     display: flex;
   }
 }
-header .container .btn-mobilemenu {
-  grid-area: mobile;
-  display: block;
-}
-@media (min-width: 992px) {
-  header .container .btn-mobilemenu {
-    display: none;
-  }
-}
 
 .showcase {
   position: relative;
@@ -1277,26 +1268,57 @@ footer .container .social-media {
 
 .contact-page {
   background-color: #F3F6FF;
+  position: relative;
+  padding-top: 70px;
 }
-.contact-page header {
-  background-color: #F3F6FF;
+.contact-page .container {
+  padding-bottom: 70px;
 }
 .contact-page .container .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.contact-page .container .content h1 {
+  padding-bottom: 40px;
+}
 .contact-page .container .content .left .email-us {
   display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.contact-page .container .content .left .email-us p {
+  padding-right: 300px;
 }
 .contact-page .container .content .left .careers {
   display: flex;
+  gap: 20px;
+}
+.contact-page .container .content .left .careers p {
+  padding-right: 300px;
 }
 .contact-page .container .content .contact-box {
   background-color: white;
+  padding: 60px;
   border-color: 3px solid black;
+  position: absolute;
+  z-index: 3;
+  margin-top: 60px;
+  right: 400px;
+  width: 640px;
+}
+.contact-page .container .content .contact-box .contact-label {
+  gap: 25px;
+}
+.contact-page .container .content .contact-box #form-message input {
+  height: 200px;
+}
+.contact-page .container .content .contact-box #form-button {
+  margin-top: 20px;
 }
 .contact-page .map {
-  width: 100%;
+  background-color: white;
+  width: auto;
+  padding-top: 100px;
 }
 
 .security-details .container {
@@ -1374,17 +1396,69 @@ footer .container .social-media {
   display: flex;
   gap: 20px;
 }
-.security-details .container .delete-account {
-  margin-top: 30px;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-}
 .security-details .container .delete-account h5 {
   color: #6366F1;
 }
+.security-details .container .delete-account .checkbox {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.security-details .container .delete-account .checkbox input[type=checkbox] {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+.security-details .container .delete-account .checkbox input[type=checkbox]:checked {
+  background-color: blue;
+}
 .security-details .container .delete-account #form-button {
   background-color: red;
-  display: inline-block;
-  width: 120px;
+}
+
+.saved-courses .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+@media (min-width: 768px) {
+  .saved-courses .container {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+  }
+}
+.saved-courses .container aside {
+  border-right: 1px solid #E2E5F1;
+  padding-right: 20px;
+}
+.saved-courses .container aside .profile {
+  margin: 20px;
+  text-align: center;
+}
+.saved-courses .container aside .profile h5 {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.saved-courses .container aside .profile padding {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+.saved-courses .container aside nav {
+  margin-top: 50px;
+  text-align: left;
+}
+.saved-courses .container aside nav a {
+  margin: 10px 0;
+  text-align: left;
+  justify-content: flex-start;
+}
+.saved-courses .container aside nav .btn-theme-s {
+  text-align: left;
+  justify-content: flex-start;
+}
+.saved-courses .container .details {
+  margin-top: 50px;
+  width: 100%;
 }

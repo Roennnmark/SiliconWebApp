@@ -3,7 +3,7 @@
 }
 
 <section class="contact-page">
-    <div class="container">
+    <div class="container" >
         <div class="content">
             <div class="left">
                 <p>Home > Contact</p>
@@ -15,7 +15,7 @@
                     <div class="email-text">
                         <h3>Email us</h3>
                         <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
-                        <a>Leave a message -></a>
+                        <a href="#" onclick="toggleContactBox()">Leave a message -></a>
                     </div>
                 </div>
                 <div class="careers">
@@ -29,9 +29,27 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-box">
-                <h3>BLABLA</h3>
-                <p>hejhej</p>
+            <div class="contact-box" id="contactBox" style="display: none;">
+                <h3>Get In Contact With Us</h3>
+                <form class="contact-label">
+                    <div id="form-fullname" class="input-group">
+                        <label>Full name</label>
+                        <input>
+                    </div>
+                    <div id="form-email" class="input-group">
+                        <label>Email address</label>
+                        <input>
+                    </div>
+                    <div id="form-service" class="input-group">
+                        <label>Service (optional)</label>
+                        <input>
+                    </div>
+                    <div id="form-message" class="input-group">
+                        <label>Message</label>
+                        <input>
+                    </div>
+                </form>
+                <button id="form-button" class="btn-theme-s" type="submit">Send Contact Request</button>
             </div>
         </div>
     </div>

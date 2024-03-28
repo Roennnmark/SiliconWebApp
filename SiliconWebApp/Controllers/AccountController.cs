@@ -166,10 +166,30 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
         return new AccountDetailsAddressInfoModel();
     }
 
+    [HttpGet]
     [Route("/account/security")]
-    public IActionResult Security()
+    public async Task<IActionResult> Security()
     {
-        return View();
+        var viewModel = new AccountSecurityViewModel
+        {
+            ProfileInfo = await PopulateProfileInfoAsync()
+        };
+        viewModel.BasicInfo ??= await PopulateBasicInfoAsync();
+
+        return View(viewModel);
+    }
+
+    [HttpGet]
+    [Route("/account/savedcourses")]
+    public async Task<IActionResult> Savedcourses()
+    {
+        var viewModel = new AccountSavedCourseViewModel
+        {
+            ProfileInfo = await PopulateProfileInfoAsync()
+        };
+        viewModel.BasicInfo ??= await PopulateBasicInfoAsync();
+
+        return View(viewModel);
     }
 
 }

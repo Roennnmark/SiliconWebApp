@@ -24,10 +24,10 @@
                 </div>
             </div>
             <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-transparent" asp-controller="Account" asp-action="Security">Security</a>
-                <a class="btn-transparent" asp-controller="Account" asp-action="Savedcourses">Saved Courses</a>
-                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Savedcourses" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Savedcourses">Saved Courses</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "btn-theme-s" : "btn-transparent")" asp-controller="Auth" asp-action="SignOut">Sign out</a>
             </nav>
         </aside>
 
@@ -105,3 +105,5 @@
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("_ValidationScriptPartial")

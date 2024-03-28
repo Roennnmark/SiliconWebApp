@@ -5,9 +5,18 @@
         <a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/Silicon Logotype - Light Mode.svg" alt=""></a>
         <div class="menu hide">
             <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">OverView</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">OverView</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Courses</a>
+                    <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">OverView</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                    <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                }
             </nav>
         </div>
         <div class="btn-switch">
@@ -30,8 +39,5 @@
                 <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
             }
         </div>
-        <button onclick="toggleMenu()" class="btn-mobilemenu">
-            <i class="fa-regular fa-bars"></i>
-        </button>
     </div>
 </header>

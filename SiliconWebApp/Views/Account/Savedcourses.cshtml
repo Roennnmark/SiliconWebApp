@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Saved Courses";
+}
+
+<section class="saved-courses">
+    <div class="container">
+        <aside>
+            <div class="profile">
+                <div class="profile-pic">
+                    <img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
+                </div>
+                <div class="profile-info">
+                    <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
+                    <p>@Model.ProfileInfo.Email</p>
+                </div>
+            </div>
+            <nav>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Savedcourses" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Savedcourses">Saved Courses</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "btn-theme-s" : "btn-transparent")" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+            </nav>
+
+        </aside>
+
+        <div class="details">
+            <h1>Saved Items</h1>
+            <button id="form-button" class="btn-transparent" type="submit">Delete all</button>
+        </div>
+    </div>
+</section>

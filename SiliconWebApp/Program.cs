@@ -15,6 +15,8 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<DataContext>();
 
+builder.Services.AddHttpClient();
+
 builder.Services.ConfigureApplicationCookie(x =>
 {
     x.LoginPath = "/signin";

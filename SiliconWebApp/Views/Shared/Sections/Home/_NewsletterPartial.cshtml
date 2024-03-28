@@ -1,23 +1,68 @@
-﻿<section class="newsletter">
+﻿@model SubscriberViewModel
+
+<section class="newsletter">
     <div class="container">
         <div class="headline-img">
             <h1>Don't Want to Miss Anything?</h1>
             <img src="~/images/curled-lines.svg" alt="">
         </div>
-        <div class="checkboxes">
-            <h5>Sign up for</h5>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Daily Newsletter</label>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Advertising Updates</label>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Week in Review</label>
-            <h5>Newsletters</h5>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Event Updates</label>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Startups Weekly</label>
-            <label for="checkbox"><input type="checkbox" id="checkbox">Podcasts</label>
-        </div>
-        <div class="input-and-btn">
-            <input type="text" placeholder="Your Email">
-            <a class="btn-theme" href="#"><span>Subscribe *</span></a>
-        </div>
-        <p>* Yes, I agree to the <a asp-controller="About" asp-action="Terms">terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</p>
+        <form asp-action="Subscribe" asp-controller="Home" method="post" novalidate>
+            <div class="checkboxes">
+                <h5>Sign up for</h5>
+                <div class="checkbox">
+                    <input asp-for="DailyNewsletter" />
+                    <label asp-for="DailyNewsletter"></label>
+                </div>
+                <div class="checkbox">
+                    <input asp-for="AdvertisingUpdates" />
+                    <label asp-for="AdvertisingUpdates"></label>
+                </div>
+                <div class="checkbox">
+                    <input asp-for="WeekinReview" />
+                    <label asp-for="WeekinReview"></label>
+                </div>
+                <h5>Newsletters</h5>
+                <div class="checkbox">
+                    <input asp-for="EventUpdates" />
+                    <label asp-for="EventUpdates"></label>
+                </div>
+                <div class="checkbox">
+                    <input asp-for="StartupsWeekly" />
+                    <label asp-for="StartupsWeekly"></label>
+                </div>
+                <div class="checkbox">
+                    <input asp-for="Podcasts" />
+                    <label asp-for="Podcasts"></label>
+                </div>
+            </div>
+            <div class="input-and-btn">
+                <input asp-for="Email">
+                <button class="btn-theme" type="submit">Subscribe *</button>
+            </div>
+        </form>
+        <span class="information">
+            @if (ViewData["Status"]?.ToString() == "Success")
+            {
+                <span>You have been Subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "AlreadyExists")
+            {
+                <span>You already subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "Invalid")
+            {
+                <span>Enter a valid email</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "ConnectionFailed")
+            {
+                <span>Unable to contact the server</span>
+            }
+            else
+            {
+                <span>* Yes, I agree to the <a asp-controller="About" asp-action="Terms">terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</span>
+            }
     </div>
+
+
+    </span>
 </section>

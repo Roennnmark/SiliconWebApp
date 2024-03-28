@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AccountSecurityViewModel
+
+@{
     ViewData["Title"] = "Security";
 }
 
@@ -7,19 +9,20 @@
         <aside>
             <div class="profile">
                 <div class="profile-pic">
-                    <img src="" alt="" />
+                    <img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
                 </div>
                 <div class="profile-info">
-                    <h5>@* @($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}") *@</h5>
-                    <p>@* @Model.ProfileInfo.Email *@</p>
+                    <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
+                    <p>@Model.ProfileInfo.Email</p>
                 </div>
             </div>
             <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-transparent" asp-controller="Account" asp-action="Security">Security</a>
-                <a class="btn-transparent" asp-controller="Account" asp-action="Savedcourses">Saved Courses</a>
-                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "Savedcourses" ? "btn-theme-s" : "btn-transparent")" asp-controller="Account" asp-action="Savedcourses">Saved Courses</a>
+                <a class="@(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "btn-theme-s" : "btn-transparent")" asp-controller="Auth" asp-action="SignOut">Sign out</a>
             </nav>
+
         </aside>
 
         <div class="details">
@@ -55,10 +58,9 @@
             <section class="delete-account">
                 <h5>Delete account</h5>
                 <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
-                <div id="form-remember" class="checkbox-group">
-                    <input />
-                    <label></label>
-
+                <div class="checkbox">
+                    <input type="checkbox" id="delete-account">
+                    <label for="delete-account">Yes, I want to delete my account.</label>
                 </div>
                 <button id="form-button" class="btn-theme-s" type="submit">Delete</button>
             </section>

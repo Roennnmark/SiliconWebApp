@@ -55,30 +55,25 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
     [HttpGet]
     [Route("/signin")]
-    public IActionResult SignIn(string returnUrl)
+    public IActionResult SignIn()
     {
         if (_signInManager.IsSignedIn(User))
             return RedirectToAction("Details", "Account");
-
-        ViewData["ReturnUrl"] = returnUrl ?? Url.Content("~/");
 
         return View();
     }
 
     [HttpPost]
     [Route("/signin")]
-    public async Task<IActionResult> SignIn(SignInViewModel viewModel, string returnUrl)
+    public async Task<IActionResult> SignIn(SignInViewModel viewModel)
     {
-        ModelState.Clear();
+        //ModelState.Clear();
 
         if (ModelState.IsValid)
         {
             var result = await _signInManager.PasswordSignInAsync(viewModel.Form.Email, viewModel.Form.Password, viewModel.Form.RememberMe, false);
             if (result.Succeeded)
             {
-                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-
                 return RedirectToAction("Details", "Account");
             }
         }

@@ -49,14 +49,5 @@ header {
                 display: flex;
             }
         }
-
-        .btn-mobilemenu {
-            grid-area: mobile;
-            display: block;
-
-            @include lg {
-                display: none;
-            }
-        }
     }
 }
