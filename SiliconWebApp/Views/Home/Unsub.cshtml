@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Unsubscribe";
+}
+
+<section class="unsubscribe">
+    <div class="container">
+        <form method="post" asp-controller="Home" asp-action="Unsub">
+            <h1>Unsubscribe</h1>
+            <div class="content">
+                <div id="form-remember" class="checkbox-group">
+                    <label>E-mail address</label>
+                    <input />
+                </div>
+            </div>
+            <button class="unsub-btn" type="submit">Unsubscribe</button>
+        </form>
+    </div>
+</section>

@@ -1462,3 +1462,36 @@ footer .container .social-media {
   margin-top: 50px;
   width: 100%;
 }
+
+.unsubscribe .container form h1 {
+  padding-top: 40px;
+}
+.unsubscribe .container form .content {
+  padding-bottom: 30px;
+}
+.unsubscribe .container form .unsub-btn {
+  background: #6366F1;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1000px;
+}
+.unsubscribe .container form .unsub-btn:hover {
+  text-decoration: none;
+  background: #565973;
+  color: #FFFFFF;
+}
+
+.courses .container .course-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.courses .container .course-list .course .course-image {
+  width: auto;
+}

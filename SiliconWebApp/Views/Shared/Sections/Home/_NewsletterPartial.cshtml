@@ -41,28 +41,27 @@
             </div>
         </form>
         <span class="information">
-            @if (ViewData["Status"]?.ToString() == "Success")
+            @if (TempData["Status"]?.ToString() == "Success")
             {
                 <span>You have been Subscribed</span>
             }
-            else if (ViewData["Status"]?.ToString() == "AlreadyExists")
+            else if (TempData["Status"]?.ToString() == "AlreadyExists")
             {
                 <span>You already subscribed</span>
             }
-            else if (ViewData["Status"]?.ToString() == "Invalid")
+            else if (TempData["Status"]?.ToString() == "Invalid")
             {
                 <span>Enter a valid email</span>
             }
-            else if (ViewData["Status"]?.ToString() == "ConnectionFailed")
+            else if (TempData["Status"]?.ToString() == "ConnectionFailed")
             {
                 <span>Unable to contact the server</span>
             }
             else
             {
                 <span>* Yes, I agree to the <a asp-controller="About" asp-action="Terms">terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</span>
+                <p>Want to unsubscribe? <a asp-controller="Home" asp-action="Unsub">Click here!</a></p>
             }
+        </span>
     </div>
-
-
-    </span>
 </section>

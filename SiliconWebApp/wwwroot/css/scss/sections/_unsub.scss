@@ -1,0 +1,34 @@
+.unsubscribe {
+    .container {
+        form {
+
+            h1 {
+                padding-top: 40px;
+            }
+
+            .content {
+                padding-bottom: 30px;
+            }
+
+            .unsub-btn {
+                background: $theme;
+                color: $white;
+                border: none;
+                border-radius: 6px;
+                text-align: center;
+                font-size: 16px;
+                padding: 8px 28px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1000px;
+
+                &:hover {
+                    text-decoration: none;
+                    background: $gray-700;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

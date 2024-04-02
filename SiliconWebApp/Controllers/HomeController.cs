@@ -66,6 +66,9 @@ public class HomeController : Controller
     {
         return View();
     }
-
-
+    [Route("/unsubscribe")]
+    public IActionResult Unsub()
+    {
+        return View();
+    }
 }

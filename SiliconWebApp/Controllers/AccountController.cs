@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
+using SiliconWebApp.Models;
 using SiliconWebApp.Models.AccountDetails;
 using SiliconWebApp.ViewModels;
 using System.Numerics;
@@ -20,6 +22,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly AddressService _addressService = addressService;
     private readonly AddressRepository _addressRepository = addressRepository;
+
 
     [HttpGet]
     [Route("/account/details")]
@@ -99,7 +102,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                             City = viewModel.AddressInfo.City,
                         };
 
-                        var result = await _addressService.CreateAddressAsync(addressResult);   
+                        var result = await _addressService.CreateAddressAsync(addressResult);
                         if (!result)
                         {
                             ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to save address data.");
@@ -188,6 +191,19 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
             ProfileInfo = await PopulateProfileInfoAsync()
         };
         viewModel.BasicInfo ??= await PopulateBasicInfoAsync();
+
+        return View(viewModel);
+    }
+
+    public async Task<IActionResult> Courses()
+    {
+        var viewModel = new CoursesViewModel();
+
+        using var http = new HttpClient();
+
+        var response = await http.GetAsync("https://localhost:7019/api/courses");
+
+        viewModel.Courses = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(await response.Content.ReadAsStringAsync())!;
 
         return View(viewModel);
     }
