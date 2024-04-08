@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using SiliconWebApp.Models;
 using SiliconWebApp.Models.Sections;
 using SiliconWebApp.Models.Views;
 using System.Net.Http;
@@ -66,9 +67,55 @@ public class HomeController : Controller
     {
         return View();
     }
+    [HttpGet]
     [Route("/unsubscribe")]
     public IActionResult Unsub()
     {
-        return View();
+        var viewModel = new UnSubViewModel();
+        viewModel.UnSubModel = new UnSubModel(); // Skapa en instans av UnSubModel för att undvika nullreferensfel
+        return View(viewModel);
+    }
+    [HttpPost]
+    [Route("/unsubscribe")]
+    public async Task<IActionResult> Unsub(UnSubViewModel unSub)
+    {
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                
+
+                if (unSub != null)
+                {
+                    using var http = new HttpClient();
+                    var UnSubscribe = new UnSubModel
+                    {
+                        Email = unSub.UnSubModel!.Email,
+                    };
+
+                    var response = await http.DeleteAsync($"https://localhost:7019/api/subscribers/{UnSubscribe.Email}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        TempData["Status"] = "Success";
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                    {
+                        TempData["Status"] = "AlreadyExists";
+                    }
+                }
+
+            }
+            catch
+            {
+                TempData["Status"] = "ConnectionFailed";
+            }
+        }
+        else
+        {
+            TempData["Status"] = "Invalid";
+        }
+
+        return RedirectToAction("Index");
     }
 }

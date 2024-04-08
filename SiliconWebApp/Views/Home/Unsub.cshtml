@@ -1,18 +1,23 @@
-﻿@{
+﻿@model UnSubViewModel
+
+@{
     ViewData["Title"] = "Unsubscribe";
 }
 
 <section class="unsubscribe">
     <div class="container">
-        <form method="post" asp-controller="Home" asp-action="Unsub">
+        <form method="post" asp-controller="Home" asp-action="Unsub" novalidate>
             <h1>Unsubscribe</h1>
             <div class="content">
                 <div id="form-remember" class="checkbox-group">
-                    <label>E-mail address</label>
-                    <input />
+                    <label asp-for="UnSubModel!.Email">Enter your e-mail to unsubscribe</label>
+                    <span asp-validation-for="UnSubModel!.Email"></span>
+                    <input asp-for="UnSubModel!.Email">
                 </div>
             </div>
             <button class="unsub-btn" type="submit">Unsubscribe</button>
         </form>
     </div>
 </section>
+
+@await Html.PartialAsync("_EmailValidationScriptPartial")

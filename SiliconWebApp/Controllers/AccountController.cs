@@ -58,6 +58,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                     user.Email = viewModel.BasicInfo.Email;
                     user.PhoneNumber = viewModel.BasicInfo.Phone;
                     user.BioGraphy = viewModel.BasicInfo.Biography;
+                    user.UserName = viewModel.BasicInfo.Email;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (!result.Succeeded)

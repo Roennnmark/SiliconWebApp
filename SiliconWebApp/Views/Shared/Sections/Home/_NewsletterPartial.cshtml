@@ -36,6 +36,8 @@
                 </div>
             </div>
             <div class="input-and-btn">
+                <label asp-for="Email"></label>
+                <span asp-validation-for="Email"></span>
                 <input asp-for="Email">
                 <button class="btn-theme" type="submit">Subscribe *</button>
             </div>
@@ -65,3 +67,5 @@
         </span>
     </div>
 </section>
+
+@await Html.PartialAsync("_EmailValidationScriptPartial")

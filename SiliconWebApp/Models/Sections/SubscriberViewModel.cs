@@ -4,8 +4,10 @@ namespace SiliconWebApp.Models.Sections;
 
 public class SubscriberViewModel
 {
-    [Required]
+    [DataType(DataType.EmailAddress)]
+    [Required(ErrorMessage = "Enter an valid email address")]
     [Display(Name = "Email", Prompt = "Your Email")]
+    [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email adress")]
     public string Email { get; set; } = null!;
     [Display(Name = "Daily Newsletter")]
     public bool DailyNewsletter { get; set; }
