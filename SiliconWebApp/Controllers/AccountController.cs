@@ -16,13 +16,13 @@ using System.Numerics;
 namespace SiliconWebApp.Controllers;
 
 [Authorize]
-public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AddressService addressService, AddressRepository addressRepository) : Controller
+public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AddressService addressService, AddressRepository addressRepository, ProfileImageService profileImage) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly AddressService _addressService = addressService;
     private readonly AddressRepository _addressRepository = addressRepository;
-
+    private readonly ProfileImageService _profileImage = profileImage;
 
     [HttpGet]
     [Route("/account/details")]
@@ -170,6 +170,14 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
         return new AccountDetailsAddressInfoModel();
     }
 
+    [HttpPost]
+    public async Task<IActionResult> UploadImage(IFormFile file)
+    {
+        var result = await _profileImage.UploadUserProfileImageAsync(User, file);
+
+        return RedirectToAction("Details", "Account");
+    }
+
     [HttpGet]
     [Route("/account/security")]
     public async Task<IActionResult> Security()
@@ -182,6 +190,9 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
 
         return View(viewModel);
     }
+
+    [HttpPost]
+    //I want a function that can change a Users password from the database and be able to delete the user account
 
     [HttpGet]
     [Route("/account/savedcourses")]

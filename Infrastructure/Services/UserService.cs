@@ -3,6 +3,8 @@ using Infrastructure.Factories;
 using Infrastructure.Helpers;
 using Infrastructure.Models;
 using Infrastructure.Repositiories;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services;
 
@@ -43,4 +45,5 @@ public class UserService(UserRepository repository, AddressService addressServic
         }
         catch (Exception ex) { return ResponseFactory.Error(ex.Message); }
     }
+
 }
