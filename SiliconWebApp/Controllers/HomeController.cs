@@ -72,7 +72,7 @@ public class HomeController : Controller
     public IActionResult Unsub()
     {
         var viewModel = new UnSubViewModel();
-        viewModel.UnSubModel = new UnSubModel(); // Skapa en instans av UnSubModel för att undvika nullreferensfel
+        viewModel.UnSubModel = new UnSubModel();
         return View(viewModel);
     }
     [HttpPost]
@@ -83,8 +83,6 @@ public class HomeController : Controller
         {
             try
             {
-                
-
                 if (unSub != null)
                 {
                     using var http = new HttpClient();

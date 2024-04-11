@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Security";
+    var user = await UserManager.GetUserAsync(User);
 }
 
 <section class="security-details">
@@ -9,7 +10,7 @@
         <aside>
             <div class="profile">
                 <div class="profile-pic">
-                    <img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
+                    <img src="~/uploads/@user!.ProfilePictureUrl" alt="" />
                 </div>
                 <div class="profile-info">
                     <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
@@ -27,43 +28,45 @@
 
         <div class="details">
             <section class="basic-info">
-                <form method="post" asp-controller="Account" asp-action="Details" novalidate>
+                <form method="post" asp-controller="Account" asp-action="ChangePassword" novalidate>
                     <h2>Security</h2>
                     <h5>Password</h5>
 
                     <div class="content">
                         <div id="form-current-password" class="input-group">
-                            <label></label>
-                            <span></span>
-                            <input />
+                            <label asp-for="SecurityInfo.CurrentPassword"></label>
+                            <span asp-validation-for="SecurityInfo.CurrentPassword"></span>
+                            <input asp-for="SecurityInfo.CurrentPassword" />
                         </div>
                         <div id="form-new-password" class="input-group">
-                            <label></label>
-                            <span></span>
-                            <input />
+                            <label asp-for="SecurityInfo.NewPassword">New Password</label>
+                            <span asp-validation-for="SecurityInfo.NewPassword"></span>
+                            <input asp-for="SecurityInfo.NewPassword" />
                         </div>
                         <div id="form-confirm-new-password" class="input-group">
-                            <label></label>
-                            <span></span>
-                            <input />
+                            <label asp-for="SecurityInfo.ConfirmNewPassword">Confirm New Password</label>
+                            <span asp-validation-for="SecurityInfo.ConfirmNewPassword"></span>
+                            <input asp-for="SecurityInfo.ConfirmNewPassword" />
                         </div>
                         <div class="form-buttons">
                             <button class="btn-gray" type="reset">Cancel</button>
-                            <button class="btn-theme" type="submit" asp-controller="Account" asp-action="Details">Change password</button>
+                            <button class="btn-theme" type="submit" @* asp-controller="Account" asp-action="ChangePassword" *@>Change password</button>
                         </div>
                     </div>
                 </form>
             </section>
             <hr />
-            <section class="delete-account">
-                <h5>Delete account</h5>
-                <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
-                <div class="checkbox">
-                    <input type="checkbox" id="delete-account">
-                    <label for="delete-account">Yes, I want to delete my account.</label>
-                </div>
-                <button id="form-button" class="btn-theme-s" type="submit">Delete</button>
-            </section>
+            <form method="post" asp-controller="Account" asp-action="DeleteUser" id="delete-account-form">
+                <section class="delete-account">
+                    <h5>Delete account</h5>
+                    <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
+                    <div class="checkbox">
+                        <input type="checkbox" id="delete-account" name="delete-account" required />
+                        <label for="delete-account">Yes, I want to delete my account.</label>
+                    </div>
+                    <button id="form-button" class="btn-theme-s" type="submit">Delete</button>
+                </section>
+            </form>
         </div>
     </div>
 </section>

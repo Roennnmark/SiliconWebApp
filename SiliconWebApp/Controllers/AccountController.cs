@@ -192,7 +192,57 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     }
 
     [HttpPost]
-    //I want a function that can change a Users password from the database and be able to delete the user account
+    public async Task<IActionResult> DeleteUser()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        return RedirectToAction("Details", "Account");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(AccountSecurityViewModel viewModel)
+    {
+        ModelState.Remove("ProfileInfo");
+        ModelState.Remove("BasicInfo");
+
+        if (ModelState.IsValid)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user != null)
+            {
+                var result = await _userManager.ChangePasswordAsync(user, viewModel.SecurityInfo.CurrentPassword, viewModel.SecurityInfo.NewPassword);
+
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignOutAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+        }
+
+        return RedirectToAction("Security", "Account");
+    }
+
+
 
     [HttpGet]
     [Route("/account/savedcourses")]
