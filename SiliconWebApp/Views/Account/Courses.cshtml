@@ -6,7 +6,19 @@
 
 <section class="courses">
     <div class="container">
-        <h1>Courses</h1>
+        <div class="header">
+            <h1>Courses</h1>
+            <form id="form-filters">
+                <select>
+                    <option>All categories</option>
+                </select>
+                <div class="input-search-group">
+                    <input id="searchQuery" name="searchQuery" placeholder="Search courses" />
+                    <i class="fa-regular fa-search"></i>
+                </div>
+            </form>
+        </div>
+
         <div class="course-list">
             @foreach(var item in Model.Courses)
             {

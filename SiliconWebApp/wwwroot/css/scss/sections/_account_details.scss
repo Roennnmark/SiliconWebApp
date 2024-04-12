@@ -19,6 +19,23 @@
                 margin: 20px;
                 text-align: center;
 
+                .profile-pic {
+
+                    img {
+                        position: relative;
+                        border-radius: 50%;
+                    }
+
+                    .btn {
+                        position: absolute;
+                        margin-top: -80px;
+                        margin-left: 200px;
+                        background-color: white;
+                        border-radius: 50%;
+                        border-color: $theme-opacity;
+                    }
+                }
+
                 h5 {
                     margin-top: 15px;
                     margin-bottom: 0;

@@ -45,6 +45,16 @@ header {
             display: none;
             gap: 15px;
 
+            .profile {
+                .image {
+                    img {
+                        border-radius: 50%;
+                        width: 30%;
+                        height: auto;
+                    }
+                }
+            }
+
             @include lg {
                 display: flex;
             }

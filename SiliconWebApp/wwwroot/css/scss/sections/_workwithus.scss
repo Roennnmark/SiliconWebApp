@@ -1,0 +1,19 @@
+.work-with-us {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: $theme-opacity;
+        margin-top: 80px;
+        padding-top: 30px;
+        .lefty {
+            padding: 110px;
+            gap: 40px;
+            h3 {
+                color: $gray-700;
+            }
+        }
+
+        .righy {
+        }
+    }
+}

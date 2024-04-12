@@ -8,7 +8,18 @@
         <aside>
             <div class="profile">
                 <div class="profile-pic">
-                    <img src="~/uploads/@user!.ProfilePictureUrl" alt="" />
+                    @if (string.IsNullOrEmpty(@user!.ProfilePictureUrl))
+                    {
+                        <img src="~/uploads/avatar.jpg" alt="profile image" />
+                    }
+                    else
+                    {
+                        <img src="~/uploads/@user!.ProfilePictureUrl" alt="profile image" />
+                    }
+                    <form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
+                        <input id="fileUploader" type="file" name="file" hidden />
+                        <label for="fileUploader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
+                    </form>
                 </div>
                 <div class="profile-info">
                     <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
@@ -30,3 +41,5 @@
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("_ImageBtnScriptPartial")

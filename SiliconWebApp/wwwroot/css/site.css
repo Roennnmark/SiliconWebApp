@@ -596,6 +596,11 @@ header .container .account-buttons {
   display: none;
   gap: 15px;
 }
+header .container .account-buttons .profile .image img {
+  border-radius: 50%;
+  width: 30%;
+  height: auto;
+}
 @media (min-width: 992px) {
   header .container .account-buttons {
     display: flex;
@@ -1143,6 +1148,18 @@ footer .container .social-media {
   margin: 20px;
   text-align: center;
 }
+.account-details .container aside .profile .profile-pic img {
+  position: relative;
+  border-radius: 50%;
+}
+.account-details .container aside .profile .profile-pic .btn {
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgba(99, 101, 241, 0.0784313725);
+}
 .account-details .container aside .profile h5 {
   margin-top: 15px;
   margin-bottom: 0;
@@ -1324,7 +1341,7 @@ footer .container .social-media {
 .security-details .container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 150px;
   margin-bottom: 70px;
 }
 @media (min-width: 768px) {
@@ -1340,6 +1357,18 @@ footer .container .social-media {
 .security-details .container aside .profile {
   margin: 20px;
   text-align: center;
+}
+.security-details .container aside .profile .profile-pic img {
+  position: relative;
+  border-radius: 50%;
+}
+.security-details .container aside .profile .profile-pic .btn {
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgba(99, 101, 241, 0.0784313725);
 }
 .security-details .container aside .profile h5 {
   margin-top: 15px;
@@ -1417,7 +1446,7 @@ footer .container .social-media {
 .saved-courses .container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 150px;
   margin-bottom: 70px;
 }
 @media (min-width: 768px) {
@@ -1433,6 +1462,18 @@ footer .container .social-media {
 .saved-courses .container aside .profile {
   margin: 20px;
   text-align: center;
+}
+.saved-courses .container aside .profile .profile-pic img {
+  position: relative;
+  border-radius: 50%;
+}
+.saved-courses .container aside .profile .profile-pic .btn {
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgba(99, 101, 241, 0.0784313725);
 }
 .saved-courses .container aside .profile h5 {
   margin-top: 15px;
@@ -1488,26 +1529,51 @@ footer .container .social-media {
   color: #FFFFFF;
 }
 
+.courses {
+  margin-top: 70px;
+}
+.courses .container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.courses .container .header #form-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+.courses .container .header #form-filters select {
+  background-color: white;
+  border-radius: 5px;
+  height: 62px;
+  width: 300px;
+  border-color: #EFF2FC;
+}
 .courses .container .course-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
 }
 .courses .container .course-list .course {
-  border: 1px solid #9397AD;
+  border: 1px solid #E2E5F1;
   border-radius: 10px;
 }
 .courses .container .course-list .course .best-seller {
   position: absolute;
   z-index: 1;
-  padding-left: 15px;
-  padding-top: 12px;
   background-color: #22C55E;
   color: #FFFFFF;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .courses .container .course-list .course .course-image {
   position: relative;
   z-index: 0;
+  border-radius: 10px;
 }
 .courses .container .course-list .course .content {
   padding: 24px;
@@ -1535,4 +1601,19 @@ footer .container .social-media {
 }
 .courses .container .course-list .course .content .course-footer .course-likes i {
   padding-top: 5px;
+}
+
+.work-with-us .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(99, 101, 241, 0.0784313725);
+  margin-top: 80px;
+  padding-top: 30px;
+}
+.work-with-us .container .lefty {
+  padding: 110px;
+  gap: 40px;
+}
+.work-with-us .container .lefty h3 {
+  color: #565973;
 }
