@@ -4,7 +4,7 @@ namespace SiliconWebApp.Models;
 
 public class UnSubModel
 {
-    [Display(Prompt = "Email address")]
+    [Display(Name = "Enter your e-mail to unsubscribe", Prompt = "Email address")]
     [DataType(DataType.EmailAddress)]
     [Required(ErrorMessage = "Email is required")]
     [RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email adress")]

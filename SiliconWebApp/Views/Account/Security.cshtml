@@ -38,7 +38,7 @@
         </aside>
 
         <div class="details">
-            <section class="basic-info">
+            <section class="change-password">
                 <form method="post" asp-controller="Account" asp-action="ChangePassword" novalidate>
                     <h2>Security</h2>
                     <h5>Password</h5>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-buttons">
                             <button class="btn-gray" type="reset">Cancel</button>
-                            <button class="btn-theme" type="submit" @* asp-controller="Account" asp-action="ChangePassword" *@>Change password</button>
+                            <button class="btn-theme" type="submit">Change password</button>
                         </div>
                     </div>
                 </form>
@@ -83,3 +83,4 @@
 </section>
 
 @await Html.PartialAsync("_ImageBtnScriptPartial")
+@await Html.PartialAsync("_SecurityPasswordValidationScriptPartial")
